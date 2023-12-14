@@ -5,17 +5,26 @@ buildscript {
         compileSdkVersion = 34
         targetSdkVersion = 34
         ndkVersion = "25.1.8937393"
-        kotlinVersion = "1.8.0"
+   kotlinversion='1.7.0'
     }
     repositories {
         google()
         mavenCentral()
+        maven { url "https://artifactory.img.ly/artifactory/imgly" }
     }
     dependencies {
-        classpath("com.android.tools.build:gradle")
+   classpath('com.android.tools.build:gradle:7.4.2')
         classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0"
+        classpath 'ly.img.android.sdk:plugin:10.8.1'
+
     }
 }
 
+
 apply plugin: "com.facebook.react.rootproject"
+allprojects {
+    repositories {
+        maven { url 'https://artifactory.img.ly/artifactory/imgly' }
+    }
+}
